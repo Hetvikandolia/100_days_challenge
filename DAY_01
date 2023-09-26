@@ -1,5 +1,5 @@
-📍concept - array #leetcode-287 find the duplicate number
-📌https://leetcode.com/problems/find-the-duplicate-number/description/
+// 📍concept - array #leetcode-287 find the duplicate number
+// 📌https://leetcode.com/problems/find-the-duplicate-number/description/
 
 class Solution {
 public:
