@@ -1,0 +1,55 @@
+📍concept - array #leetcode-287 find the duplicate number
+📌https://leetcode.com/problems/find-the-duplicate-number/description/
+
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+                    // 📍1) this is one way to solve but, time and space complexity are high
+                    // approach - 1) sort array 2) if i == i+1 then presence of duplicate 
+                    // t.c = o(nlogn)
+                    // s.c = 0(n)
+
+        // code ->
+        // sort(nums.begin(),nums.end());
+
+        // for(int i=0;i<nums.size()-1;i++){
+        //     if(nums[i]==nums[i+1]){
+        //         return nums[i];
+        //     }
+        // }
+        // return -1;
+
+                    //📍 2) this method decreases 
+                    // the time =o(n)
+                    //  space compl. = o(1) 
+                    // approach - 1)iterate index 2)mark visited 3)if already visited(return ans)
+                    // negative marking method 
+
+    // 1)
+    //     int ans= -1;
+    //     for(int i=0;i<nums.size();i++){
+    //         int index = abs(nums[i]);
+    //         // 2)
+    //         if(nums[index]<0){
+    //             ans=index;
+    //             break;
+    //         }
+        
+    //     // 3)
+    //     nums[index] *= -1;
+    // }
+
+    // return ans;
+
+                    //📍 3) positioning method 
+                        // the time =o(n)
+                        //  space compl. = o(1)
+                    // approach -  we swap every element with thier index so, already present       element is duplicate
+    while(nums[0] != nums[nums[0]]){
+        swap(nums[0],nums[nums[0]]);
+    }
+    return nums[0];
+    }
+};
+
+// we r still modifying array element - in ques, we cant modify array but this can be better soln
