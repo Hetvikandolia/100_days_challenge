@@ -13,8 +13,8 @@ class Solution
        vector <int> commonElements (int A[], int B[], int C[], int n1, int n2, int n3)
         {
             // 📍 approach - 1) iterate every element, do compare after incrementing 2) if all three are same store in set 3) and then return ans
-            // t.c - o(n) 
-            // s.c - o(1)
+            // t.c - o(n1+n2+n3) 
+            // s.c - o(n1)
             vector<int>ans;
             set<int>st;
             int i,j,k;
