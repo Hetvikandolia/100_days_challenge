@@ -1,0 +1,27 @@
+📍 Concept - Array (removes duplicates from sorted array)
+📌 Link(Leetcode-26) - https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int i=1,j=0;
+
+        // 📍approach ---- > 1) two pointers 2)we need to rearranged every element   
+        
+        while(i < nums.size()){
+            if(nums[i] == nums[j])
+                i++;
+            else{
+                // better way to write 3 line of code in one line------>
+                nums[++j] = nums[i++];
+            
+                // upper line describe here---->
+                // j++;
+                // nums[j]=nums[i];
+                // i++;
+
+                }
+        }
+        return j+1;
+    }
+};
