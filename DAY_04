@@ -1,0 +1,35 @@
+📍 concept- array (Maximum Average Subarray)
+📌 source(leetcode-643) - https://leetcode.com/problems/maximum-average-subarray-i/description/
+
+class Solution {
+public:
+
+    // 📍 approach -  1) for loop for iterate kth elements 
+                // 2) while loop for substract ith element and add jth element
+                // 3)add every element and store in maxsum (return maxavg)
+    double slidingFroce(vector<int>& nums,int& k){
+        int i=0,j=k-1;
+        int sum=0;
+        for(int y=i;y<=j;y++)
+            sum += nums[y] ;
+            int maxsum=sum;
+            j++;
+        
+
+        while(j < nums.size()){
+            sum -= nums[i++];
+            sum += nums[j++];
+            maxsum = max(maxsum, sum);
+        
+        }
+        double maxavg = maxsum / (double)k;
+        return maxavg;
+        
+    }
+    double findMaxAverage(vector<int>& nums, int k) {
+        return slidingFroce(nums,k);
+    }
+};
+
+// t.c - o(n)
+// s.c - o(1)
