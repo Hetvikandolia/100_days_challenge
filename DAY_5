@@ -1,0 +1,38 @@
+📍 concept - k-diff pairs in an array
+📌 source(leetcode-532) - https://leetcode.com/problems/k-diff-pairs-in-an-array/description/
+
+📍// approach -  1)sort given array
+            // 2)iterate two pointers over array 
+            // 3)if diffrence of them equal to k 
+            // 4)insert in the set and return 
+
+class Solution {
+public:
+    int findPairs(vector<int>& nums, int k) {
+        sort(nums.begin(),nums.end());
+        // int ans=0;
+        // in case of duplicate values we storing elements in set 
+        set<pair<int,int>> ans;
+        int i=0,j=1;
+
+        while(j<nums.size()){
+            int diff = nums[j]-nums[i];
+            if(diff == k){
+                // ans++;
+                ans.insert({nums[i],nums[j]});
+                i++,j++;
+            }
+            else if(diff>k){
+                i++;
+            }
+            else
+            {
+                j++;
+            }
+            if(i==j)
+            j++;
+        }
+        return ans.size();
+    }
+};
+
