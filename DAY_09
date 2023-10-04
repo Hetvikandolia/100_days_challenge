@@ -1,0 +1,30 @@
+📍concept - string ( reverse only letters )
+📌source(leetcode - 917) - https://leetcode.com/problems/reverse-only-letters/description/
+
+class Solution {
+public:
+
+    //✨ approach - >
+    // 1)take two pointers low and high
+    // 2)if char is alphabet at both pointers then swap
+    // 3)otherwise print given symbol/char as it is 
+    string reverseOnlyLetters(string s) {
+        int l=0;
+        int h=s.size()-1;
+
+        while(l<h){
+            if(isalpha(s[l]) && isalpha(s[h])){
+                swap(s[l],s[h]);
+                l++;
+                h--;
+            }
+            else if(!isalpha(s[l])){
+                l++;
+            }
+            else{
+                h--;
+            }
+        }
+        return s;
+    }
+};
