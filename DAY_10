@@ -1,0 +1,42 @@
+📍 concept - string (lonegest commmon prefix)
+📌 source(leetcode-14) - https://leetcode.com/problems/longest-common-prefix/
+
+class Solution {
+public:
+//✨ approach - 
+            // 1)while loop to iterating & compare every string's with every char 
+            // 2)if any common char we found then push back in ans 
+            // 3)return ans
+    string longestCommonPrefix(vector<string>& strs) {
+        string ans;
+        int i=0;
+        while(true)
+        {
+            char curr_ch=0;
+            // for each loop iterate every string given array
+            for(auto str : strs){
+                if(i >= str.size()){
+                    // out_of_bound
+                    // in the case any string has smallest length can't be campare with anymore
+                    curr_ch = 0;
+                    break;
+                }
+                //just started
+                if(curr_ch == 0){
+                    curr_ch = str[i]; 
+                }
+                else if(str[i] != curr_ch){
+                    curr_ch = 0; //in that case, Any char cant same 
+                    break;
+                }
+            }
+            if(curr_ch == 0){
+                break;
+            }
+
+            ans.push_back(curr_ch);
+            i++;
+        }
+        return ans;
+    }
+};
