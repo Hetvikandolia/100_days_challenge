@@ -1,0 +1,34 @@
+📍concept - string , hashtable (isomorphic string )
+📌source(leetcode-205)  - https://leetcode.com/problems/isomorphic-strings/ 
+
+class Solution {
+public:
+// ✨approach - 
+// 1)making two hash for s and t 
+// 2)itrate by for loop ,if 's' hash's every char match with 't' hash put in istcharsmapped
+// 3)if string isomorphic then return true else false
+    bool isIsomorphic(string s, string t) {
+
+        if(t.length() != s.length()){
+            return false;
+        }
+
+
+        int hash[256] = {0}; //mapping of each of language 's' to language 't'
+        bool istCharsMapped[256] = {0}; //stroes if t[i] char already mapped with s[i]
+
+        for(int i=0;i<s.size();i++){
+            if(hash[s[i]] == 0 && istCharsMapped[t[i]] == 0){
+                hash[s[i]] = t[i];
+                istCharsMapped[t[i]] =true;
+            }
+        }
+
+        for(int i=0;i<s.size();i++){
+            if(char(hash[s[i]]) != t[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+};
