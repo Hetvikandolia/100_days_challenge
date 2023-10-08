@@ -1,0 +1,29 @@
+📍concept - string (group anagram )
+📌source(leetcode-49) - https://leetcode.com/problems/group-anagrams/
+
+class Solution {
+public:
+//✨ approach -
+// 1)iterate for loop for sort given string in the array, sort every char
+// 2)then push in key and value in created map
+// 3)made grp of same anagram of strings and return ans
+
+
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        map<string, vector<string>> mp;
+
+        for(auto str:strs){
+            string s=str;
+            sort(s.begin(),s.end());
+            mp[s].push_back(str);
+        }
+
+        vector<vector<string>>ans;
+        for(auto it=mp.begin(); it!=mp.end(); it++){
+            ans.push_back(it->second);
+        }
+
+        return ans;
+        
+    }
+};
