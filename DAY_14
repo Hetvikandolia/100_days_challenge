@@ -1,0 +1,33 @@
+📍concept - string (longest palindrome string)
+📌source(leetcode-5) -  https://leetcode.com/problems/longest-palindromic-substring/
+
+class Solution {
+public:
+// ✨approach-
+// 1)substrings of string
+// 2)extract palindrome ones
+// 3)max length string from all palindrome strings 
+// but time complexity is very high o(n^3)
+    bool ispalindrome(string&s ,int start,int end){
+        while(start<end){
+            if(s[start] != s[end]){
+                return false;
+            }
+            start++, end--;
+        }
+        return true;
+    }
+    string longestPalindrome(string s) {
+        string ans="";
+
+        for(int i=0;i<s.size();i++){
+            for(int j=1;j<s.size();j++){
+                if(ispalindrome(s,i,j)){
+                    string t=s.substr(i,j-i+1);
+                    ans=t.size() > ans.size() ? t : ans;
+                }
+            }
+        }
+        return ans;
+    }
+};
