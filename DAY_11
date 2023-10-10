@@ -4,7 +4,7 @@
 class Solution {
 public:
 
-    //✨approach -
+    //✨approach -   
     // 1) by two pointer approach take low and high
     // 2) if they are consonants just increment low/decrement high
     // 3) otherwise swap both if both vowels 
