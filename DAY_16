@@ -1,0 +1,34 @@
+📍concept - Stirng(string to integer(atoi))
+📌source(leetcode-8) - https://leetcode.com/problems/string-to-integer-atoi/
+
+class Solution {
+public:
+
+// ✨approach -
+// 1)ignore leading white espace
+// 2)determine  'sign'
+// 3)if digit found after finding sign (integer prep.)
+// 4)fill went non-digit char is found
+// 5)speacial handling
+    int myAtoi(string s) {
+        int num=0,i=0,sign=1;
+        while(s[i] == ' '){
+            i++;
+        }
+
+        if(i< s.size() && (s[i] == '-' || s[i] == '+')){
+            sign = s[i] == '+' ? 1 :-1;
+            ++i;
+        }
+
+        while(i<s.size() && isdigit(s[i])){
+            if(num > INT_MAX / 10 || (num == INT_MAX / 10 && s[i] > '7')){
+                return sign == -1 ? INT_MIN :INT_MAX;
+            }
+
+            num =num*10 + (s[i]  - '0');
+            ++i;
+        }
+        return num*sign ;
+    }
+};
