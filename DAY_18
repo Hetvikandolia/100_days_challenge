@@ -1,7 +1,7 @@
 📍concept - string(string to integer)
 📌source(leetcode - 12 ) - https://leetcode.com/problems/integer-to-roman/
 
-class Solution {
+class Solution { 
 public:
     string intToRoman(int num) {
         string romanSymbols[] = { "M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
